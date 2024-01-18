@@ -18,12 +18,22 @@ def twoSum(nums: list[int], target: int) -> list[int]:
 # 解法二 空间换时间
 def twoSum2(nums: list[int], target: int) -> list[int]:
     n = len(nums)
+    mapper = {}  # 创建一个空字典，用于存储每个数字及其索引
+    '''
+    字典用法
     mapper = {}
+    mapper['key1'] = 'value1'  # 添加键值对
+    '''
+
     for i in range(n):
-        if target-nums[i] in mapper:
-            return [mapper[target-nums[i]],i]
+        if target - nums[i] in mapper:
+            # 如果目标值减去当前数字的差在字典中存在，说明找到了两个数之和等于目标值
+            # 返回这两个数的索引
+            return [mapper[target - nums[i]], i]
         else:
+            # 否则将当前数字及其索引添加到字典中
             mapper[nums[i]] = i
+    # 如果无法找到满足条件的两个数，返回一个空列表
     return []
 
 def main():
