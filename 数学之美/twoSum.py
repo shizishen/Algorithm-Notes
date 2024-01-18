@@ -1,8 +1,9 @@
-def twoSum(nums:list[int], target:int) -> list[int]:
+# 解法一
+def twoSum(nums: list[int], target: int) -> list[int]:
     n = len(nums)
     nums.sort()
-    l = 0;
-    r = len(nums)-1
+    l = 0
+    r = len(nums) - 1
     while l < r:
         if nums[l] + nums[r] < target:
             l += 1
@@ -13,10 +14,15 @@ def twoSum(nums:list[int], target:int) -> list[int]:
             return [l, r]
     return []
 
+# 解法二
+def twoSum2(nums: list[int], target: int) -> list[int]:
+
 def main():
     nums = [1, 23, 34, 45, 8, 7, 8]
     target = 8
     index = twoSum(nums, target)
     print(index)
+
+
 if __name__ == '__main__':
     main()
